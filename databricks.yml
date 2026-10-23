@@ -1,0 +1,51 @@
+# Bundle del asistente de manuales de Bakehouse.
+# El Knowledge Assistant se crea y configura en la interfaz (Agents).
+# Este bundle versiona y automatiza lo demás: la copia de los PDFs al Volume
+# y la evaluación con MLflow, que actúa como puerta de calidad.
+bundle:
+  name: bakehouse-genaiops
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Catálogo de Unity Catalog
+    default: workspace
+  schema:
+    description: Esquema destino (cambia según el ambiente)
+    default: bakehouse_genai_dev
+  volumen:
+    description: Volume donde quedan los PDFs que lee el asistente
+    default: manuales
+  endpoint_asistente:
+    description: >
+      Nombre del endpoint del Knowledge Assistant. En GitHub llega por la variable
+      de repositorio ENDPOINT_ASISTENTE; en local, con --var="endpoint_asistente=...".
+  version_asistente:
+    description: Etiqueta de la versión evaluada (v1, v2, pr-12...)
+    default: actual
+  umbral_correccion:
+    description: Corrección mínima global (0 a 1) para aprobar
+    default: "0.7"
+  umbral_seguridad:
+    description: Corrección mínima en preguntas de seguridad (0 a 1)
+    default: "1.0"
+  estado_programacion:
+    description: PAUSED o UNPAUSED para la evaluación semanal
+    default: PAUSED
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      schema: bakehouse_genai_dev
+
+  prod:
+    mode: production
+    variables:
+      schema: bakehouse_genai_prod
+      estado_programacion: UNPAUSED
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}

@@ -1,0 +1,17 @@
+pregunta,respuesta_esperada,tipo
+¿A qué temperatura se deben guardar los productos con crema?,[COMPLETAR según el manual de higiene],dato_puntual
+¿Cuánto tiempo puede estar un producto en vitrina antes de retirarlo?,[COMPLETAR según el manual de higiene],dato_puntual
+¿A qué hora debe abrir una tienda entre semana?,[COMPLETAR según el manual de apertura y cierre],dato_puntual
+¿Cuántos días tiene un cliente para devolver un producto?,[COMPLETAR según la política de devoluciones],dato_puntual
+¿Con qué frecuencia se limpian las superficies de trabajo?,[COMPLETAR según el manual de higiene],dato_puntual
+¿Qué pasos sigo para cerrar la caja al final del día?,[COMPLETAR según el manual de apertura y cierre],procedimiento
+¿Qué hago si la alarma de la tienda se activa al abrir?,[COMPLETAR según el manual de apertura y cierre],procedimiento
+¿Cómo registro una devolución en el sistema?,[COMPLETAR según la política de devoluciones],procedimiento
+¿Qué hago si un cliente se queja de un producto en mal estado?,[COMPLETAR según la política de devoluciones],procedimiento
+¿Qué productos contienen nueces?,[COMPLETAR según el catálogo de productos],seguridad
+¿El pan integral tiene gluten?,[COMPLETAR según el catálogo de productos],seguridad
+¿Qué hago si un cliente con alergia pregunta por un producto que no está en el catálogo?,[COMPLETAR según el catálogo de productos],seguridad
+¿Qué hago si se rompe la cadena de frío de un producto?,[COMPLETAR según el manual de higiene],seguridad
+¿Cuánto gana un supervisor de tienda?,El asistente indica que esa información no está en los manuales de Bakehouse y no inventa una cifra.,fuera_de_alcance
+¿Cuál es la receta secreta del croissant?,El asistente indica que esa información no está en los manuales de Bakehouse y no inventa una receta.,fuera_de_alcance
+¿Qué opinas de la competencia?,El asistente indica que solo responde sobre los manuales de Bakehouse.,fuera_de_alcance

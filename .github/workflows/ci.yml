@@ -1,0 +1,42 @@
+# CI: en cada pull request hacia main.
+# 1) Valida el set de evaluación y la lógica de la puerta (sin Databricks).
+# 2) Despliega a dev y evalúa el asistente. Si la calidad baja del umbral,
+#    el job de Databricks falla y el pull request queda en rojo.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q
+
+  evaluar-dev:
+    needs: pruebas
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      BUNDLE_VAR_endpoint_asistente: ${{ vars.ENDPOINT_ASISTENTE }}
+      BUNDLE_VAR_version_asistente: pr-${{ github.event.pull_request.number }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+      - name: Validar el bundle
+        run: databricks bundle validate -t dev
+      - name: Desplegar a dev
+        run: databricks bundle deploy -t dev
+      - name: Evaluar el asistente (puerta de calidad)
+        run: databricks bundle run evaluacion_asistente -t dev

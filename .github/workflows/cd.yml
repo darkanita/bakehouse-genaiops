@@ -1,0 +1,31 @@
+# CD: al hacer merge a main (o a mano desde la pestaña Actions).
+# Despliega a prod, copia los PDFs al Volume de prod y deja programada
+# la evaluación semanal. Cada evaluación queda registrada en MLflow.
+name: CD
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cd-prod
+  cancel-in-progress: false
+
+jobs:
+  desplegar-prod:
+    runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      BUNDLE_VAR_endpoint_asistente: ${{ vars.ENDPOINT_ASISTENTE }}
+      BUNDLE_VAR_version_asistente: main-${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: databricks/setup-cli@main
+      - name: Validar el bundle
+        run: databricks bundle validate -t prod
+      - name: Desplegar a prod
+        run: databricks bundle deploy -t prod
+      - name: Copiar los manuales al Volume de prod
+        run: databricks bundle run ingesta_manuales -t prod

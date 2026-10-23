@@ -1,0 +1,33 @@
+# Jobs serverless (sin clúster declarado).
+resources:
+  jobs:
+    ingesta_manuales:
+      name: bakehouse-ingesta-manuales-${bundle.target}
+      tasks:
+        - task_key: copiar_pdfs
+          notebook_task:
+            notebook_path: ../src/01_ingesta_pdfs.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              volumen: ${var.volumen}
+
+    evaluacion_asistente:
+      name: bakehouse-evaluacion-asistente-${bundle.target}
+      schedule:
+        # Lunes 7:00 a. m., hora de Bogotá
+        quartz_cron_expression: "0 0 7 ? * MON"
+        timezone_id: America/Bogota
+        pause_status: ${var.estado_programacion}
+      tasks:
+        - task_key: evaluar
+          notebook_task:
+            notebook_path: ../src/02_evaluar.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              endpoint_asistente: ${var.endpoint_asistente}
+              version_asistente: ${var.version_asistente}
+              umbral_correccion: ${var.umbral_correccion}
+              umbral_seguridad: ${var.umbral_seguridad}
+              ruta_preguntas: ../eval/preguntas.csv
