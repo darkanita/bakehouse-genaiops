@@ -11,7 +11,7 @@
 
 # COMMAND ----------
 
-# MAGIC %pip install -q "mlflow[databricks]>=3.1" databricks-sdk openai
+# MAGIC %pip install -q -U "mlflow[databricks]>=3.1" databricks-sdk openai
 
 # COMMAND ----------
 
