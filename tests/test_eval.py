@@ -23,6 +23,10 @@ def test_el_set_del_repo_es_valido():
     assert errores == [], errores
 
 
+def test_el_set_del_repo_no_tiene_respuestas_pendientes():
+    assert filas_pendientes(pd.read_csv(RUTA_SET)) == 0
+
+
 def _set_valido():
     filas = []
     for i in range(MINIMO_PREGUNTAS):
