@@ -1,17 +1,17 @@
 pregunta,respuesta_esperada,tipo
-¿A qué temperatura se deben guardar los productos con crema?,[COMPLETAR según el manual de higiene],dato_puntual
-¿Cuánto tiempo puede estar un producto en vitrina antes de retirarlo?,[COMPLETAR según el manual de higiene],dato_puntual
-¿A qué hora debe abrir una tienda entre semana?,[COMPLETAR según el manual de apertura y cierre],dato_puntual
-¿Cuántos días tiene un cliente para devolver un producto?,[COMPLETAR según la política de devoluciones],dato_puntual
-¿Con qué frecuencia se limpian las superficies de trabajo?,[COMPLETAR según el manual de higiene],dato_puntual
-¿Qué pasos sigo para cerrar la caja al final del día?,[COMPLETAR según el manual de apertura y cierre],procedimiento
-¿Qué hago si la alarma de la tienda se activa al abrir?,[COMPLETAR según el manual de apertura y cierre],procedimiento
-¿Cómo registro una devolución en el sistema?,[COMPLETAR según la política de devoluciones],procedimiento
-¿Qué hago si un cliente se queja de un producto en mal estado?,[COMPLETAR según la política de devoluciones],procedimiento
-¿Qué productos contienen nueces?,[COMPLETAR según el catálogo de productos],seguridad
-¿El pan integral tiene gluten?,[COMPLETAR según el catálogo de productos],seguridad
-¿Qué hago si un cliente con alergia pregunta por un producto que no está en el catálogo?,[COMPLETAR según el catálogo de productos],seguridad
-¿Qué hago si se rompe la cadena de frío de un producto?,[COMPLETAR según el manual de higiene],seguridad
+¿A qué temperatura se deben guardar los productos con crema?,"Entre 2 °C y 5 °C, en la vitrina refrigerada o en el cuarto frío (Manual de higiene, sección 1).",dato_puntual
+¿Cuánto tiempo puede estar un producto en vitrina antes de retirarlo?,"Depende del producto: pan y horneados sin relleno máximo 12 horas; productos con crema máximo 24 horas en vitrina refrigerada; galletas empacadas hasta la fecha de vencimiento del empaque (Manual de higiene, sección 2).",dato_puntual
+¿A qué hora debe abrir una tienda entre semana?,"De lunes a viernes la tienda abre al público a las 6:30 a. m.; el personal llega a las 5:45 a. m. (Manual de apertura y cierre, sección 1).",dato_puntual
+¿Cuántos días tiene un cliente para devolver un producto?,"Los perecederos solo el mismo día de la compra con tiquete; los productos empacados hasta 3 días después, con tiquete y empaque sin abrir (Política de devoluciones, sección 1).",dato_puntual
+¿Con qué frecuencia se limpian las superficies de trabajo?,"Cada 2 horas y siempre al cambiar de tarea, con limpieza profunda y desinfección al cierre (Manual de higiene, sección 3).",dato_puntual
+¿Qué pasos sigo para cerrar la caja al final del día?,"Con dos personas presentes: imprimir el reporte Z, contar el efectivo, comparar con el reporte y registrar diferencias, dejar la base de cambio, guardar el resto en la caja fuerte y firmar ambos el formato de cierre (Manual de apertura y cierre, sección 4).",procedimiento
+¿Qué hago si la alarma de la tienda se activa al abrir?,"Ingresar el código para silenciarla, llamar a la central de monitoreo en menos de 5 minutos con la palabra clave, informar al supervisor y anotarlo en la bitácora. Si hay señales de ingreso forzado, no entrar y esperar al supervisor (Manual de apertura y cierre, sección 3).",procedimiento
+¿Cómo registro una devolución en el sistema?,"En el punto de venta: Ventas › Devoluciones, escanear el tiquete, elegir producto y motivo, elegir cambio o reembolso, pedir autorización del supervisor si supera el valor de 3 productos y entregar el comprobante (Política de devoluciones, sección 2).",procedimiento
+¿Qué hago si un cliente se queja de un producto en mal estado?,"Atenderlo sin importar el plazo: disculparse, retirar los productos del mismo lote, ofrecer cambio o reembolso inmediato, registrar la queja con hora y lote en la bitácora de calidad y avisar al supervisor (Política de devoluciones, sección 3).",procedimiento
+¿Qué productos contienen nueces?,"El brownie de nueces y la torta de zanahoria contienen nueces; el croissant de almendras contiene almendras y la galleta de avena y pasas puede contener trazas de nueces (Catálogo de productos).",seguridad
+¿El pan integral tiene gluten?,"Sí. El pan integral contiene gluten porque se hace con harina de trigo integral (Catálogo de productos).",seguridad
+¿Qué hago si un cliente con alergia pregunta por un producto que no está en el catálogo?,"No confirmar ni descartar alérgenos: decirle que no hay información verificada, no recomendarle consumirlo y llamar al supervisor (Catálogo de productos, regla de oro).",seguridad
+¿Qué hago si se rompe la cadena de frío de un producto?,"Si un refrigerado pasó más de 2 horas por encima de 5 °C: retirarlo de la venta, desecharlo sin volver a refrigerarlo, registrarlo en la bitácora de mermas y avisar al supervisor y a mantenimiento (Manual de higiene, sección 4).",seguridad
 ¿Cuánto gana un supervisor de tienda?,El asistente indica que esa información no está en los manuales de Bakehouse y no inventa una cifra.,fuera_de_alcance
 ¿Cuál es la receta secreta del croissant?,El asistente indica que esa información no está en los manuales de Bakehouse y no inventa una receta.,fuera_de_alcance
 ¿Qué opinas de la competencia?,El asistente indica que solo responde sobre los manuales de Bakehouse.,fuera_de_alcance
